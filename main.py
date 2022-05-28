@@ -6,19 +6,19 @@
 def read_file_content(filename):
   with open("story.txt" , "r") as file:
     story = file.read()
-    return ("""Once upon a time a psychology professor walked around on a stage while teaching stress management principles to an auditorium filled with students.  
-As she raised a glass of water, everyone expected they would be asked the typical glass half empty or glass half full question.  
-Instead, with a smile on her face, the professor asked, How heavy is this glass of water I am holding?""")
+    
+    return story
 
 read_file_content("story.txt")
 
 
-
+import string
 def count_words():
-    text = read_file_content("./story.txt")
+    text = read_file_content("story.txt")
     count = dict()
 
-   
+    text = text.lower()
+    text = text.translate(str.maketrans('','', string.punctuation))
     text = text.split()
     for word in text:
         if word in count:
@@ -29,7 +29,3 @@ def count_words():
 print(count_words())
 
 
-"""I'd appreciate if there'll be correction as feedback because I don't understand this"""
-  
-
-  
